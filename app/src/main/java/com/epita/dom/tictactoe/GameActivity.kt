@@ -5,12 +5,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 
 class GameActivity : AppCompatActivity() , View.OnClickListener{
     val tab = Array(9, {0})
     var turn: Int ?= null
     var name : String ?= null
+
+    fun notZeroAnymore(): Boolean{
+        for(zero in tab)
+            if(zero == 0)
+                return false
+        return true
+    }
 
     fun isGameFinished(): Int {
         var res = 0
@@ -48,10 +56,14 @@ class GameActivity : AppCompatActivity() , View.OnClickListener{
             txt.text = "X"
             tab[id] = 1
             turn = 2
+            p_n.visibility = View.VISIBLE
+            p_g.visibility = View.INVISIBLE
         }else {
             turn = 1
             txt.text = "0"
             tab[id] = 2
+            p_n.visibility = View.INVISIBLE
+            p_g.visibility = View.VISIBLE
         }
 
         val res = isGameFinished()
@@ -59,13 +71,19 @@ class GameActivity : AppCompatActivity() , View.OnClickListener{
             val intent = Intent(this@GameActivity, ScoreActivity::class.java)
             intent.putExtra("res_id", res)
             var n: String = ""
-            if(res == 1)
+            if(res == 1){
                 n = name!!
-            else
-                n= "Guest"
+                Toast.makeText(this@GameActivity, "Win", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                n = "Guest"
+                Toast.makeText(this@GameActivity, "Loose", Toast.LENGTH_SHORT).show()
+            }
             intent.putExtra("name", n)
             startActivity(intent)
             finish()
+        }else if(notZeroAnymore()){
+            Toast.makeText(this@GameActivity, "Draw", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -74,6 +92,10 @@ class GameActivity : AppCompatActivity() , View.OnClickListener{
         setContentView(R.layout.activity_game)
 
         turn = (1..2).random()
+        if(turn == 1)
+            p_n.visibility = View.INVISIBLE
+        else
+            p_g.visibility = View.INVISIBLE
 
         name = intent.getStringExtra("name")
         txt_name_player.text = "O ($name)"

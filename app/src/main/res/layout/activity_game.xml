@@ -18,8 +18,13 @@
     <TextView   android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Player turn : "
+                android:textSize="20sp"
+                android:id="@+id/p_g"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/gdl_v"/>
+                app:layout_constraintRight_toLeftOf="@id/gdl_v"
+                app:layout_constraintTop_toTopOf="@id/txt_guest"
+                app:layout_constraintBottom_toBottomOf="@id/txt_guest"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +34,15 @@
             app:layout_constraintLeft_toRightOf="@id/gdl_v"
             android:id="@+id/txt_guest"/>
 
+    <TextView   android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Player turn : "
+                android:textSize="20sp"
+                android:id="@+id/p_n"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/gdl_v"
+                app:layout_constraintTop_toTopOf="@id/txt_name_player"
+                app:layout_constraintBottom_toBottomOf="@id/txt_name_player"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
