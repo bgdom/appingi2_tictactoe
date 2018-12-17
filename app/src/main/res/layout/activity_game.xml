@@ -208,6 +208,26 @@
                 android:textSize="40sp"
                 android:textStyle="bold"/>
 
+        <View android:layout_width="match_parent"
+              android:layout_height="3dp"
+              android:background="@color/colorAccent"
+              app:layout_constraintBottom_toBottomOf="@id/gdl_h_1"
+              app:layout_constraintTop_toTopOf="@id/gdl_h_1"/>
+        <View android:layout_width="match_parent"
+              android:layout_height="3dp"
+              android:background="@color/colorAccent"
+              app:layout_constraintBottom_toBottomOf="@id/gdl_h_2"
+              app:layout_constraintTop_toTopOf="@id/gdl_h_2"/>
+        <View android:layout_width="3dp"
+              android:layout_height="match_parent"
+              android:background="@color/colorAccent"
+              app:layout_constraintLeft_toLeftOf="@id/gdl_v_1"
+              app:layout_constraintRight_toRightOf="@id/gdl_v_1"/>
+        <View android:layout_width="3dp"
+              android:layout_height="match_parent"
+              android:background="@color/colorAccent"
+              app:layout_constraintLeft_toLeftOf="@id/gdl_v_2"
+              app:layout_constraintRight_toRightOf="@id/gdl_v_2"/>
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.Guideline android:layout_width="match_parent"
